@@ -187,51 +187,7 @@ survey = Survey
       , (Option "express")
       ]
       (HasOther true)
-  , SelectResponse (Question "What packages, if any, do you use via the FFI?")
-      [ (Option "PapaParse MicroModal hash-wasm")
-      , ( Option
-            "octokit fast-glob fs-extra semver tar tmp xhr2 playwright marked"
-        )
-      , (Option "ws")
-      , (Option "WebAudio API puppeteer")
-      , (Option "yaml mustache knexjs markdownIt pug ldapjs")
-      , (Option "tree-sitter")
-      , (Option "glmatrix")
-      , (Option "react-basic react-basic-hooks node")
-      , (Option "material-components")
-      , (Option "node-fs node-jwt")
-      , ( Option
-            "I can't list them all here, these come to mind: framer-motion react-dnd threejs storybook playwright"
-        )
-      , (Option "react react-dom recharts date-fns")
-      , (Option "d3.js")
-      , (Option "echarts")
-      , (Option "react emotion uuid hicharts")
-      , (Option "cypress storybook")
-      , (Option "grapesjs")
-      , ( Option
-            "highchart zxcvbn react-slick react-dropzone copy-to-clipboard react-infinite-scroll-component react-datepicker react-icons"
-        )
-      , (Option "amqp @sentry/node")
-      , (Option "Jsbi (Amazon) Ion-js Web crypto api")
-      , (Option "Redis Express Passport ini jsonwebtoken snabbdom")
-      , (Option "Typeorm")
-      , (Option "moment big-integer redux")
-      , (Option "splitbee")
-      , (Option "socket.io")
-      , (Option "web-audio  web-midi  vexflow")
-      , (Option "React Enzyme")
-      , (Option "Enzyme React")
-      , (Option "vega-lite")
-      , (Option "node-sqlite3")
-      , ( Option
-            "react react-calendar calendar-link rc-tooltip react-confetti react-images-viewer react-infinite-scroller react-list react-select react-range react-sortable-hoc chart.js pusher-js react-dom"
-        )
-      , (Option "D3.js")
-      , (Option "Google material components")
-      , (Option "typeorm")
-      , (Option "CodeMirror ProseMirror Vega")
-      ]
+  , FreeFormResponse (Question "What packages, if any, do you use via the FFI?")
   , CheckSeveralResponse
       ( Question
           "Which platforms or environments do you develop PureScript software for?"
