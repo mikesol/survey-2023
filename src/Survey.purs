@@ -19,13 +19,26 @@ survey = Survey
       ]
   , CheckSeveralResponse
       ( Question
-          "As you have indicated that you're no longer using PureScript or have never used PureScript, what prompted you to participate in this survey?"
+          "As you have indicated that you're no longer using PureScript, what prompted you to participate in this survey?"
       )
       [ (Option "To provide feedback on PureScript in general.")
       , ( Option
-            "Specifically to provide feedback on why I stopped using PureScript or have never used PureScript."
+            "Specifically to provide feedback on why I stopped using PureScript."
         )
-      , (Option "I plan to return to or start using PureScript in the future.")
+      , (Option "I plan to return to PureScript in the future.")
+      , (Option "I consider myself part of the PureScript community.")
+      , (Option "Curiosity.")
+      ]
+      (HasOther true)
+  , CheckSeveralResponse
+      ( Question
+          "As you have indicated that you have never used PureScript, what prompted you to participate in this survey?"
+      )
+      [ (Option "To provide feedback on PureScript in general.")
+      , ( Option
+            "Specifically to provide feedback on why I have never used PureScript."
+        )
+      , (Option "I plan to start using PureScript in the future.")
       , (Option "I consider myself part of the PureScript community.")
       , (Option "Curiosity.")
       ]
@@ -51,25 +64,20 @@ survey = Survey
       (HasOther true)
   , FreeFormResponse
       ( Question
-          "Please use this input to provide free-form feedback about why you're no longer using PureScript or have never used PureScript."
+          "Please use this input to provide free-form feedback about why you're no longer using PureScript."
+      )
+  , FreeFormResponse
+      ( Question
+          "Please use this input to provide free-form feedback about why you've never used PureScript."
       )
   , SelectResponse (Question "On average, how often do you use PureScript?")
-      [ ( Option
-            "try running pulp psci instead.  What the hell is pulp?  Oh, it's a build tool.  Its doco says you install it with: npm install -g purescript pulp bower Oh, I see another build tool, npm.  Great.  And what the hell is bower? Oh, it's another build tool.  Bower recommends using yarn, webpack or parcel (instead of Bower).  What are they? More build tools. pulp psci purescript npm installer: installation failed"
-        )
-      , (Option "Daily or nearly so")
+      [ (Option "Daily or nearly so")
       , (Option "Weekly or nearly so")
       , (Option "Monthly or nearly so")
-      , ( Option
-            "nevertheless I decided to focus on a simpler programming language Elm or Golang."
-        )
       , (Option "Rarely")
       ]
   , SelectResponse (Question "How would you rate your PureScript expertise?")
       [ ( Option
-            "please try installing again * ERROR: Subcommand terminated with exit code 1  And on, and on."
-        )
-      , ( Option
             "I can write and review simple scripts, services, applications or programs in PureScript."
         )
       , ( Option
