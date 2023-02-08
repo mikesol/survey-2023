@@ -7,6 +7,7 @@ data SurveyQuestion
   = SelectResponse Question (Array Option)
   | CheckSeveralResponse Question (Array Option) HasOther
   | FreeFormResponse Question
+  | ChooseACountryResponse Question
 
 newtype Survey = Survey (Array SurveyQuestion)
 
@@ -17,6 +18,7 @@ survey = Survey
       , (Option "No, I don't currently use PureScript, but I have in the past.")
       , (Option "No, I have never used PureScript.")
       ]
+  , FreeFormResponse (Question "Why did you start using PureScript?")
   , CheckSeveralResponse
       ( Question
           "As you have indicated that you're no longer using PureScript, what prompted you to participate in this survey?"
@@ -479,7 +481,8 @@ survey = Survey
       ( Question
           "Through which mechanisms, if any, would you be most likely to contribute funding to the PureScript project?"
       )
-      [ (Option "Books and/or merchandise")
+      [ (Option "Books")
+      , (Option "Merchandise")
       , (Option "Crowdfunding (recurring) - i.e. Open Collective")
       , (Option "Donation button")
       , (Option "Crowdfunding (one-time) i.e. Kickstarter")
@@ -717,6 +720,10 @@ survey = Survey
           "Do you feel that belonging to an underrepresented or marginalized group in technology makes it difficult for you to participate in the PureScript community?"
       )
       [ (Option "Never"), (Option "Often"), (Option "Sometimes") ]
+  , FreeFormResponse
+      ( Question
+          "Have you contributed to the PureScript compiler or ecosystem? If so, how and what motivated you to make that contribution? If not, why not?"
+      )
   , SelectResponse (Question "Do you write or design software in your work?")
       [ (Option "No")
       , (Option "Never")
@@ -763,6 +770,8 @@ survey = Survey
       , (Option "Distributed systems")
       , (Option "Embedded devices (with operating systems)")
       , (Option "Embedded devices (bare metal)")
+      , (Option "Game development")
+      , (Option "Frontend web development")
       , (Option "HPC (High-performance computing)")
       , (Option "IoT (Internet of Things)")
       , (Option "Machine learning")
@@ -1465,56 +1474,7 @@ survey = Survey
       , (Option "Z++")
       ]
       (HasOther true)
-  , SelectResponse (Question "Where do you live?")
-      [ (Option "Uruguay")
-      , (Option "Hungary")
-      , (Option "Ukraine")
-      , (Option "beginner programmer tutorials")
-      , (Option "South Korea")
-      , (Option "Germany")
-      , (Option "Other...")
-      , (Option "Bulgaria")
-      , (Option "Finland")
-      , (Option "Israel")
-      , (Option "Netherlands")
-      , (Option "Italy")
-      , (Option "Thailand")
-      , (Option "France")
-      , (Option "Sweden")
-      , (Option "Nepal")
-      , (Option "Spain")
-      , (Option "Mexico")
-      , (Option "Austria")
-      , (Option "Singapore")
-      , (Option "Poland")
-      , (Option "Japan")
-      , (Option "Philippines")
-      , (Option "Slovakia")
-      , (Option "United Kingdom")
-      , (Option "Russia")
-      , (Option "Australia")
-      , (Option "Canada")
-      , (Option "Pakistan")
-      , (Option "Croatia")
-      , (Option "Greece")
-      , (Option "China")
-      , (Option "Romania")
-      , (Option "Indonesia")
-      , (Option "Uganda")
-      , (Option "Norway")
-      , (Option "United States of America")
-      , (Option "Portugal")
-      , (Option "Czechia (Czech Republic)")
-      , (Option "Saudi Arabia")
-      , (Option "Brazil")
-      , (Option "Belgium")
-      , (Option "India")
-      , (Option "Turkey")
-      , (Option "Switzerland")
-      , (Option "Iraq")
-      , (Option "Iran")
-      , (Option "Denmark")
-      ]
+  , ChooseACountryResponse (Question "Where do you live?")
   , CheckSeveralResponse
       ( Question
           "In what ways are you comfortable communicating about technical topics in English?"
@@ -1539,6 +1499,26 @@ survey = Survey
   , CheckSeveralResponse
       ( Question
           "What is/are your preferred language(s) for technical communication?"
+      )
+      [ (Option "Chinese")
+      , (Option "Spanish")
+      , (Option "English")
+      , (Option "Hindi")
+      , (Option "Bengali")
+      , (Option "Persian")
+      , (Option "Portuguese")
+      , (Option "Russian")
+      , (Option "Japanese")
+      , (Option "Turkish")
+      , (Option "Korean")
+      , (Option "French")
+      , (Option "German")
+      , (Option "Italian")
+      ]
+      (HasOther true)
+  , CheckSeveralResponse
+      ( Question
+          "What is/are your preferred language(s) for day-to-day communication?"
       )
       [ (Option "Chinese")
       , (Option "Spanish")
