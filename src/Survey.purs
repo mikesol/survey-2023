@@ -187,6 +187,8 @@ survey = Survey
       , (Option "elmish (classic and/or hooks)")
       , (Option "spork")
       , (Option "flame")
+      , (Option "deku")
+      , (Option "jelly")
       , (Option "presto")
       , (Option "halogen-hooks")
       ]
@@ -240,6 +242,8 @@ survey = Survey
       , (Option "via Nix (i.e. easy-purescript-nix, purs-nix)")
       , (Option "via a Linux distro package")
       , (Option "via Homebrew")
+      , (Option "psvm")
+      , (Option "purescript-setup")
       , (Option "I download official tarballs from GitHub")
       , (Option "I build from source")
       ]
@@ -338,6 +342,24 @@ survey = Survey
         )
       ]
       (HasOther false)
+  , CheckSeveralResponse
+      ( Question
+          "Which learning resources did you use when learning PureScript?"
+      )
+      [ ( Option
+            "Jordan's PureScript Reference"
+        )
+      , ( Option
+            "The PureScript Book"
+        )
+      , ( Option
+            "Functional Programming Made Easier"
+        )
+      , ( Option
+            "Framework documentation like the Halogen Guide"
+        )
+      ]
+      (HasOther true)
   , CheckSeveralResponse (Question "Why did you first start using PureScript?")
       [ ( Option
             "I am/was using Elm and found PureScript a better option for my use case"
